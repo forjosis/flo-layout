@@ -1,0 +1,293 @@
+// variable
+$spacing: .5rem, 1rem, 3.5rem, 4rem, 8rem;
+$media_sm: 'min-width: 576px';
+$media_md: 'min-width: 768px';
+$media_lg: 'min-width: 992px';
+$media_xl: 'min-width: 1200px';
+$media_xxl:'min-width: 1400px';
+
+// template
+//// grid-column
+@mixin gridColumn($value){
+    grid-column-start: span $value;
+    grid-column-end: span $value;
+}
+
+
+/*=======================================
+containers
+=======================================*/
+[class*="flo_container_"]{
+	width: 100%;
+ 	padding-right: nth($spacing, 2);
+ 	padding-left: nth($spacing, 2);
+ 	margin-right: auto;
+ 	margin-left: auto;
+}
+.flo_container_sm{
+	max-width: 540px;
+}
+.flo_container_md{
+	max-width: 720px;
+}
+.flo_container_lg{
+	max-width: 960px;
+}
+.flo_container_xl{
+	max-width: 1140px;
+}
+.flo_container_xxl{
+	max-width: 1320px;
+}
+
+
+
+/*=======================================
+grid layout
+=======================================*/
+[class*='flo_row']{
+    list-style-type: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+.flo_row{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+[class*="flo_col_sm_"],
+[class*="flo_col_md_"]
+[class*="flo_col_lg_"],
+[class*="flo_col_xl_"],
+[class*="flo_col_xxl_"]{
+    @include gridColumn(12);
+}
+
+// coll
+@mixin coll($size) {
+    $underscore: null;
+    @if $size == ''{
+        $underscore: '';
+    }
+    @else{
+        $underscore: '_';
+    }
+    .flo_col_#{$size}#{$underscore}{
+        @for $i from 1 through 12{
+            &#{$i}{
+                @include gridColumn(#{$i});
+            }
+        }
+    }    
+}
+
+@include coll('');
+@media ($media_sm) {
+    @include coll('sm');
+}
+@media ($media_md) {
+    @include coll('md');
+}
+@media ($media_lg) {
+    @include coll('lg');
+}
+@media ($media_xl) {
+    @include coll('xl');
+}
+@media ($media_xxl) {
+    @include coll('xxl');
+}
+
+
+
+/*=======================================
+gap
+=======================================*/
+@mixin gap($size) {
+    $underscore: null;
+    @if $size == ''{
+        $underscore: '';
+    }
+    @else{
+        $underscore: '_';
+    }
+    .flo_gap_#{$size}#{$underscore}{
+        &0{
+            gap: 0;
+        }
+        @for $i from 1 through 5{
+            &#{$i}{
+                gap: nth($spacing, $i );
+            }
+        }
+    }
+}
+@include gap('');
+@media ($media_sm) {
+    @include gap('sm');
+}
+@media ($media_md) {
+    @include gap('md');
+}
+@media ($media_lg) {
+    @include gap('lg');
+}
+@media ($media_xl) {
+    @include gap('xl');
+}
+@media ($media_xxl) {
+    @include gap('xxl');
+}
+
+
+
+/*=======================================
+grid offset
+=======================================*/
+@mixin offset($size) {
+    $underscore: null;
+    @if $size == ''{
+        $underscore: '';
+    }
+    @else{
+        $underscore: '_';
+    }
+    @for $i from 1 through 12{
+        .flo_offset_#{$size}#{$underscore}{
+            &#{$i}{
+                grid-column-start: $i;
+            }
+        }
+    }
+}
+@include offset('');
+@media ($media_sm) {
+    @include offset('sm');
+}
+@media ($media_md) {
+    @include offset('md');
+}
+@media ($media_lg) {
+    @include offset('lg');
+}
+@media ($media_xl) {
+    @include offset('xl');
+}
+@media ($media_xxl) {
+    @include offset('xxl');
+}
+
+
+
+/*=======================================
+space
+=======================================*/
+@mixin space_size($sizeType, $direction, $class, $size) {
+    $dirVal:$direction;
+    $underscore: null;
+    @if $size == ''{
+        $underscore: '';
+    }
+    @else{
+        $underscore: '_';
+    }
+    .flo_#{$class}#{$underscore}#{$size}_{
+        &0{
+            #{$sizeType}-#{$dirVal}:0
+        }
+        @for $i from 1 through 5{
+            &#{$i}{
+                #{$sizeType}-#{$dirVal}:nth($spacing, $i);
+            }
+        }
+    }
+}
+/* margin */ 
+@include space_size ('margin', 'top', 'mt', '');
+@include space_size ('margin', 'bottom', 'mb', '');
+@include space_size ('margin', 'left', 'ml', '');
+@include space_size ('margin', 'right', 'mr', '');
+/* padding */
+@include space_size ('padding', 'top', 'pt', '');
+@include space_size ('padding', 'bottom', 'pb', '');
+@include space_size ('padding', 'left', 'pl', '');
+@include space_size ('padding', 'right', 'pr', '');
+
+@media ($media_sm){
+    /* margin */ 
+    @include space_size ('margin', 'top', 'mt', 'sm');
+    @include space_size ('margin', 'bottom', 'mb', 'sm');
+    @include space_size ('margin', 'left', 'ml', 'sm');
+    @include space_size ('margin', 'right', 'mr', 'sm');
+    /* padding */
+    @include space_size ('padding', 'top', 'pt', 'sm');
+    @include space_size ('padding', 'bottom', 'pb', 'sm');
+    @include space_size ('padding', 'left', 'pl', 'sm');
+    @include space_size ('padding', 'right', 'pr', 'sm');
+}
+@media ($media_md){
+    /* margin */ 
+    @include space_size ('margin', 'top', 'mt', 'md');
+    @include space_size ('margin', 'bottom', 'mb', 'md');
+    @include space_size ('margin', 'left', 'ml', 'md');
+    @include space_size ('margin', 'right', 'mr', 'md');
+    /* padding */
+    @include space_size ('padding', 'top', 'pt', 'md');
+    @include space_size ('padding', 'bottom', 'pb', 'md');
+    @include space_size ('padding', 'left', 'pl', 'md');
+    @include space_size ('padding', 'right', 'pr', 'md');
+}
+@media ($media_lg){
+    /* margin */ 
+    @include space_size ('margin', 'top', 'mt', 'lg');
+    @include space_size ('margin', 'bottom', 'mb', 'lg');
+    @include space_size ('margin', 'left', 'ml', 'lg');
+    @include space_size ('margin', 'right', 'mr', 'lg');
+    /* padding */
+    @include space_size ('padding', 'top', 'pt', 'lg');
+    @include space_size ('padding', 'bottom', 'pb', 'lg');
+    @include space_size ('padding', 'left', 'pl', 'lg');
+    @include space_size ('padding', 'right', 'pr', 'lg');
+}
+@media ($media_xl){
+    /* margin */ 
+    @include space_size ('margin', 'top', 'mt', 'xl');
+    @include space_size ('margin', 'bottom', 'mb', 'xl');
+    @include space_size ('margin', 'left', 'ml', 'xl');
+    @include space_size ('margin', 'right', 'mr', 'xl');
+    /* padding */
+    @include space_size ('padding', 'top', 'pt', 'xl');
+    @include space_size ('padding', 'bottom', 'pb', 'xl');
+    @include space_size ('padding', 'left', 'pl', 'xl');
+    @include space_size ('padding', 'right', 'pr', 'xl');
+}
+@media ($media_xxl){
+    /* margin */ 
+    @include space_size ('margin', 'top', 'mt', 'xxl');
+    @include space_size ('margin', 'bottom', 'mb', 'xxl');
+    @include space_size ('margin', 'left', 'ml', 'xxl');
+    @include space_size ('margin', 'right', 'mr', 'xxl');
+    /* padding */
+    @include space_size ('padding', 'top', 'pt', 'xxl');
+    @include space_size ('padding', 'bottom', 'pb', 'xxl');
+    @include space_size ('padding', 'left', 'pl', 'xxl');
+    @include space_size ('padding', 'right', 'pr', 'xxl');
+}
+
+
+
+/*=======================================
+list items
+=======================================*/
+.flo_list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    &_nav{
+        margin-right: 0;
+    }
+    &_nav>li:not(:last-child){
+        margin-right: nth($spacing, 2 );
+    }
+}
