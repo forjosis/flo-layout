@@ -1,10 +1,35 @@
 // variable
 $spacing: .5rem, 1rem, 3.5rem, 4rem, 8rem;
-$media_sm: 'min-width: 576px';
-$media_md: 'min-width: 768px';
-$media_lg: 'min-width: 992px';
-$media_xl: 'min-width: 1200px';
-$media_xxl:'min-width: 1400px';
+// $media_sm: 'min-width: 577px';
+// $media_md: 'min-width: 769px';
+// $media_lg: 'min-width: 993px';
+// $media_xl: 'min-width: 1025px';
+// $media_xxl:'min-width: 1201px';
+$media_sm: 'min-width: 768px';
+$media_md: 'min-width: 992px';
+$media_lg: 'min-width: 1025px';
+$media_xl: 'min-width: 1201px';
+$media_xxl:'min-width: 1401px';
+
+
+
+// $media_max_sm: 'max-width: 576px';
+// $media_max_md: 'max-width: 768px';
+// $media_max_lg: 'max-width: 992px';
+// $media_max_xl: 'max-width: 1200px';
+// $media_max_xxl:'max-width: 1400px';
+$media_max_sm: 'max-width: 767px';
+$media_max_md: 'max-width: 991px';
+$media_max_lg: 'max-width: 1023px';
+$media_max_xl: 'max-width: 1199px';
+$media_max_xxl:'max-width: 1399px';
+
+
+// 576 col-sm
+// 768 col-md
+// 992 col-lg
+// 1200 col-xl
+// 1500 col-xlg
 
 // template
 //// grid-column
@@ -17,28 +42,28 @@ $media_xxl:'min-width: 1400px';
 /*=======================================
 containers
 =======================================*/
-[class*="flo_container_"]{
-	width: 100%;
- 	padding-right: nth($spacing, 2);
- 	padding-left: nth($spacing, 2);
- 	margin-right: auto;
- 	margin-left: auto;
-}
-.flo_container_sm{
-	max-width: 540px;
-}
-.flo_container_md{
-	max-width: 720px;
-}
-.flo_container_lg{
-	max-width: 960px;
-}
-.flo_container_xl{
-	max-width: 1140px;
-}
-.flo_container_xxl{
-	max-width: 1320px;
-}
+// [class*="flo_container_"]{
+// 	width: 100%;
+//  	padding-right: nth($spacing, 2);
+//  	padding-left: nth($spacing, 2);
+//  	margin-right: auto;
+//  	margin-left: auto;
+// }
+// .flo_container_sm{
+// 	max-width: 540px;
+// }
+// .flo_container_md{
+// 	max-width: 720px;
+// }
+// .flo_container_lg{
+// 	max-width: 960px;
+// }
+// .flo_container_xl{
+// 	max-width: 1140px;
+// }
+// .flo_container_xxl{
+// 	max-width: 1320px;
+// }
 
 
 
@@ -46,22 +71,64 @@ containers
 grid layout
 =======================================*/
 [class*='flo_row']{
-    list-style-type: none;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
+    // list-style-type: none;
+    // margin-left: 0;
+    // margin-right: 0;
+    // padding-left: 0;
+    // padding-right: 0;
 }
 .flo_row{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
 }
+.flo_row_2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.flo_row_3{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.flo_row_4{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.flo_row_5{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+.flo_row_6{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+.flo_row_7{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+.flo_row_8{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+.flo_row_9{
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+}
+.flo_row_10{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+}
+.flo_row_11{
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+}
+
 [class*="flo_col_sm_"],
-[class*="flo_col_md_"]
+[class*="flo_col_md_"],
 [class*="flo_col_lg_"],
 [class*="flo_col_xl_"],
 [class*="flo_col_xxl_"]{
     @include gridColumn(12);
+    max-width:100%;
 }
 
 // coll
@@ -102,9 +169,74 @@ grid layout
 
 
 /*=======================================
-gap
+Display NONE
 =======================================*/
-@mixin gap($size) {
+@media ($media_max_sm){
+    .flo_hidden_sm{
+        display: none!important;
+    }
+}
+@media ($media_max_md){
+    .flo_hidden_md{
+        display: none!important;
+    }
+}
+@media ($media_max_lg){
+    .flo_hidden_lg{
+        display: none!important;
+    }
+}
+@media ($media_max_xl){
+    .flo_hidden_xl{
+        display: none!important;
+    }
+}
+@media ($media_xxl){
+    .flo_hidden_xxl{
+        display: none!important;
+    }
+}
+
+
+// show
+[class*="flo_show_"]{
+    display: none!important;
+}
+@media ($media_sm){
+    .flo_show_sm{
+        display: block!important;
+    }
+}
+@media ($media_md){
+    .flo_show_md{
+        display: block!important;
+    }
+}
+@media ($media_lg){
+    .flo_show_lg{
+        display: block!important;
+    }
+}
+@media ($media_xl){
+    .flo_show_xl{
+        display: block!important;
+    }
+}
+@media ($media_xxl){
+    .flo_show_xxl{
+        display: block!important;
+    }
+}
+
+
+
+/*=======================================
+DISPLAY FLEX
+=======================================*/
+@mixin flexOrder($value){
+    order: $value;
+}
+@mixin flex_order($size) {
     $underscore: null;
     @if $size == ''{
         $underscore: '';
@@ -112,33 +244,135 @@ gap
     @else{
         $underscore: '_';
     }
-    .flo_gap_#{$size}#{$underscore}{
-        &0{
-            gap: 0;
-        }
-        @for $i from 1 through 5{
+    .flo_order_#{$size}#{$underscore}{
+        @for $i from 1 through 6{
             &#{$i}{
-                gap: nth($spacing, $i );
+                @include flexOrder(#{$i});
             }
         }
+    }    
+}
+
+.flo_flex{
+    display: flex;
+}
+.flo_flex_dir_col{
+    display: flex;
+    flex-direction: column;
+}
+.flo_flex_dir_col_down{
+    justify-content: flex-end;
+    height: 100%;
+}
+.flo_flex_end{
+    justify-content: flex-end;
+}
+.flo_flex_dir_col_center{
+    justify-content: center;
+    height: 100%;
+}
+@include flex_order('');
+@media ($media_max_sm) {
+    @include flex_order('sm');
+    .flo_flex_sm{
+        display: flex;
+    }
+    .flo_flex_dir_col_sm{
+        flex-direction: column;
     }
 }
-@include gap('');
-@media ($media_sm) {
-    @include gap('sm');
+@media ($media_max_md) {
+    @include flex_order('md');
+    .flo_flex_md{
+        display: flex;
+    }
+    .flo_flex_dir_col_md{
+        flex-direction: column;
+    }
 }
-@media ($media_md) {
-    @include gap('md');
+@media ($media_max_lg) {
+    @include flex_order('lg');
+    .flo_flex_lg{
+        display: flex;
+    }
+    .flo_flex_dir_col_lg{
+        flex-direction: column;
+    }
 }
-@media ($media_lg) {
-    @include gap('lg');
+@media ($media_max_xl) {
+    @include flex_order('xl');
+    .flo_flex_xl{
+        display: flex;
+    }
+    .flo_flex_dir_col_xl{
+        flex-direction: column;
+    }
 }
-@media ($media_xl) {
-    @include gap('xl');
+@media ($media_max_xxl) {
+    @include flex_order('xxl');
+    .flo_flex_xxl{
+        display: flex;
+    }
+    .flo_flex_dir_col_xxl{
+        flex-direction: column;
+    }
 }
-@media ($media_xxl) {
-    @include gap('xxl');
+
+
+.flo_flex_col_sb{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
 }
+
+
+/*=======================================
+height
+=======================================*/
+.flo_h_100{
+    height: 100%;
+}
+
+
+/*=======================================
+gap
+=======================================*/
+// @mixin gap($size) {
+//     $underscore: null;
+//     @if $size == ''{
+//         $underscore: '';
+//     }
+//     @else{
+//         $underscore: '_';
+//     }
+//     .flo_gap_#{$size}#{$underscore}{
+//         &0{
+//             gap: 0;
+//         }
+//         @for $i from 1 through 5{
+//             &#{$i}{
+//                 gap: nth($spacing, $i );
+//             }
+//         }
+//     }
+// }
+// @include gap('');
+// @media ($media_sm) {
+//     @include gap('sm');
+// }
+// @media ($media_md) {
+//     @include gap('md');
+// }
+// @media ($media_lg) {
+//     @include gap('lg');
+// }
+// @media ($media_xl) {
+//     @include gap('xl');
+// }
+// @media ($media_xxl) {
+//     @include gap('xxl');
+// }
 
 
 
@@ -152,6 +386,9 @@ grid offset
     }
     @else{
         $underscore: '_';
+    }
+    .flo_offset_#{$size}_0{
+        grid-column-start: unset;
     }
     @for $i from 1 through 12{
         .flo_offset_#{$size}#{$underscore}{
@@ -183,111 +420,134 @@ grid offset
 /*=======================================
 space
 =======================================*/
-@mixin space_size($sizeType, $direction, $class, $size) {
-    $dirVal:$direction;
-    $underscore: null;
-    @if $size == ''{
-        $underscore: '';
-    }
-    @else{
-        $underscore: '_';
-    }
-    .flo_#{$class}#{$underscore}#{$size}_{
-        &0{
-            #{$sizeType}-#{$dirVal}:0
-        }
-        @for $i from 1 through 5{
-            &#{$i}{
-                #{$sizeType}-#{$dirVal}:nth($spacing, $i);
-            }
-        }
-    }
-}
+// @mixin space_size($sizeType, $direction, $class, $size) {
+//     $dirVal:$direction;
+//     $underscore: null;
+//     @if $size == ''{
+//         $underscore: '';
+//     }
+//     @else{
+//         $underscore: '_';
+//     }
+//     .flo_#{$class}#{$underscore}#{$size}_{
+//         &0{
+//             #{$sizeType}-#{$dirVal}:0
+//         }
+//         @for $i from 1 through 5{
+//             &#{$i}{
+//                 #{$sizeType}-#{$dirVal}:nth($spacing, $i);
+//             }
+//         }
+//     }
+// }
 /* margin */ 
-@include space_size ('margin', 'top', 'mt', '');
-@include space_size ('margin', 'bottom', 'mb', '');
-@include space_size ('margin', 'left', 'ml', '');
-@include space_size ('margin', 'right', 'mr', '');
-/* padding */
-@include space_size ('padding', 'top', 'pt', '');
-@include space_size ('padding', 'bottom', 'pb', '');
-@include space_size ('padding', 'left', 'pl', '');
-@include space_size ('padding', 'right', 'pr', '');
+// @include space_size ('margin', 'top', 'mt', '');
+// @include space_size ('margin', 'bottom', 'mb', '');
+// @include space_size ('margin', 'left', 'ml', '');
+// @include space_size ('margin', 'right', 'mr', '');
+// /* padding */
+// @include space_size ('padding', 'top', 'pt', '');
+// @include space_size ('padding', 'bottom', 'pb', '');
+// @include space_size ('padding', 'left', 'pl', '');
+// @include space_size ('padding', 'right', 'pr', '');
 
-@media ($media_sm){
-    /* margin */ 
-    @include space_size ('margin', 'top', 'mt', 'sm');
-    @include space_size ('margin', 'bottom', 'mb', 'sm');
-    @include space_size ('margin', 'left', 'ml', 'sm');
-    @include space_size ('margin', 'right', 'mr', 'sm');
-    /* padding */
-    @include space_size ('padding', 'top', 'pt', 'sm');
-    @include space_size ('padding', 'bottom', 'pb', 'sm');
-    @include space_size ('padding', 'left', 'pl', 'sm');
-    @include space_size ('padding', 'right', 'pr', 'sm');
-}
-@media ($media_md){
-    /* margin */ 
-    @include space_size ('margin', 'top', 'mt', 'md');
-    @include space_size ('margin', 'bottom', 'mb', 'md');
-    @include space_size ('margin', 'left', 'ml', 'md');
-    @include space_size ('margin', 'right', 'mr', 'md');
-    /* padding */
-    @include space_size ('padding', 'top', 'pt', 'md');
-    @include space_size ('padding', 'bottom', 'pb', 'md');
-    @include space_size ('padding', 'left', 'pl', 'md');
-    @include space_size ('padding', 'right', 'pr', 'md');
-}
-@media ($media_lg){
-    /* margin */ 
-    @include space_size ('margin', 'top', 'mt', 'lg');
-    @include space_size ('margin', 'bottom', 'mb', 'lg');
-    @include space_size ('margin', 'left', 'ml', 'lg');
-    @include space_size ('margin', 'right', 'mr', 'lg');
-    /* padding */
-    @include space_size ('padding', 'top', 'pt', 'lg');
-    @include space_size ('padding', 'bottom', 'pb', 'lg');
-    @include space_size ('padding', 'left', 'pl', 'lg');
-    @include space_size ('padding', 'right', 'pr', 'lg');
-}
-@media ($media_xl){
-    /* margin */ 
-    @include space_size ('margin', 'top', 'mt', 'xl');
-    @include space_size ('margin', 'bottom', 'mb', 'xl');
-    @include space_size ('margin', 'left', 'ml', 'xl');
-    @include space_size ('margin', 'right', 'mr', 'xl');
-    /* padding */
-    @include space_size ('padding', 'top', 'pt', 'xl');
-    @include space_size ('padding', 'bottom', 'pb', 'xl');
-    @include space_size ('padding', 'left', 'pl', 'xl');
-    @include space_size ('padding', 'right', 'pr', 'xl');
-}
-@media ($media_xxl){
-    /* margin */ 
-    @include space_size ('margin', 'top', 'mt', 'xxl');
-    @include space_size ('margin', 'bottom', 'mb', 'xxl');
-    @include space_size ('margin', 'left', 'ml', 'xxl');
-    @include space_size ('margin', 'right', 'mr', 'xxl');
-    /* padding */
-    @include space_size ('padding', 'top', 'pt', 'xxl');
-    @include space_size ('padding', 'bottom', 'pb', 'xxl');
-    @include space_size ('padding', 'left', 'pl', 'xxl');
-    @include space_size ('padding', 'right', 'pr', 'xxl');
-}
+// @media ($media_sm){
+//     /* margin */ 
+//     @include space_size ('margin', 'top', 'mt', 'sm');
+//     @include space_size ('margin', 'bottom', 'mb', 'sm');
+//     @include space_size ('margin', 'left', 'ml', 'sm');
+//     @include space_size ('margin', 'right', 'mr', 'sm');
+//     /* padding */
+//     @include space_size ('padding', 'top', 'pt', 'sm');
+//     @include space_size ('padding', 'bottom', 'pb', 'sm');
+//     @include space_size ('padding', 'left', 'pl', 'sm');
+//     @include space_size ('padding', 'right', 'pr', 'sm');
+// }
+// @media ($media_md){
+//     /* margin */ 
+//     @include space_size ('margin', 'top', 'mt', 'md');
+//     @include space_size ('margin', 'bottom', 'mb', 'md');
+//     @include space_size ('margin', 'left', 'ml', 'md');
+//     @include space_size ('margin', 'right', 'mr', 'md');
+//     /* padding */
+//     @include space_size ('padding', 'top', 'pt', 'md');
+//     @include space_size ('padding', 'bottom', 'pb', 'md');
+//     @include space_size ('padding', 'left', 'pl', 'md');
+//     @include space_size ('padding', 'right', 'pr', 'md');
+// }
+// @media ($media_lg){
+//     /* margin */ 
+//     @include space_size ('margin', 'top', 'mt', 'lg');
+//     @include space_size ('margin', 'bottom', 'mb', 'lg');
+//     @include space_size ('margin', 'left', 'ml', 'lg');
+//     @include space_size ('margin', 'right', 'mr', 'lg');
+//     /* padding */
+//     @include space_size ('padding', 'top', 'pt', 'lg');
+//     @include space_size ('padding', 'bottom', 'pb', 'lg');
+//     @include space_size ('padding', 'left', 'pl', 'lg');
+//     @include space_size ('padding', 'right', 'pr', 'lg');
+// }
+// @media ($media_xl){
+//     /* margin */ 
+//     @include space_size ('margin', 'top', 'mt', 'xl');
+//     @include space_size ('margin', 'bottom', 'mb', 'xl');
+//     @include space_size ('margin', 'left', 'ml', 'xl');
+//     @include space_size ('margin', 'right', 'mr', 'xl');
+//     /* padding */
+//     @include space_size ('padding', 'top', 'pt', 'xl');
+//     @include space_size ('padding', 'bottom', 'pb', 'xl');
+//     @include space_size ('padding', 'left', 'pl', 'xl');
+//     @include space_size ('padding', 'right', 'pr', 'xl');
+// }
+// @media ($media_xxl){
+//     /* margin */ 
+//     @include space_size ('margin', 'top', 'mt', 'xxl');
+//     @include space_size ('margin', 'bottom', 'mb', 'xxl');
+//     @include space_size ('margin', 'left', 'ml', 'xxl');
+//     @include space_size ('margin', 'right', 'mr', 'xxl');
+//     /* padding */
+//     @include space_size ('padding', 'top', 'pt', 'xxl');
+//     @include space_size ('padding', 'bottom', 'pb', 'xxl');
+//     @include space_size ('padding', 'left', 'pl', 'xxl');
+//     @include space_size ('padding', 'right', 'pr', 'xxl');
+// }
 
 
 
 /*=======================================
 list items
 =======================================*/
-.flo_list{
+.flo_list_clear{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    &_nav{
-        margin-right: 0;
-    }
-    &_nav>li:not(:last-child){
-        margin-right: nth($spacing, 2 );
-    }
 }
+
+/*=======================================
+text
+=======================================*/
+.flo_text_center{
+    text-align: center;
+}
+
+
+
+/*=======================================
+position
+=======================================*/
+.flo_relative{
+    position: relative;
+}
+
+
+// .flo_list{
+//     list-style-type: none;
+//     margin: 0;
+//     padding: 0;
+//     &_nav{
+//         margin-right: 0;
+//     }
+//     &_nav>li:not(:last-child){
+//         margin-right: nth($spacing, 2 );
+//     }
+// }
