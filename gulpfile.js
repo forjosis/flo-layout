@@ -4,7 +4,8 @@
 let 
     // plugins
     { src, dest, watch, series, parallel } = require('gulp'),
-    sass = require('gulp-sass'),
+    // sass = require('gulp-sass'),
+    sass = require('gulp-sass')(require('sass')),
     // parts
     dist_folder = 'dist',
     source_folder  = 'src',

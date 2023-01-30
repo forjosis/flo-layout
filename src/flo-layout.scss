@@ -5,6 +5,7 @@ $spacing: .5rem, 1rem, 3.5rem, 4rem, 8rem;
 // $media_lg: 'min-width: 993px';
 // $media_xl: 'min-width: 1025px';
 // $media_xxl:'min-width: 1201px';
+$media_xs: 'min-width: 480px';
 $media_sm: 'min-width: 768px';
 $media_md: 'min-width: 992px';
 $media_lg: 'min-width: 1025px';
@@ -122,6 +123,7 @@ grid layout
     grid-template-columns: repeat(11, 1fr);
 }
 
+[class*="flo_col_xs_"],
 [class*="flo_col_sm_"],
 [class*="flo_col_md_"],
 [class*="flo_col_lg_"],
@@ -150,6 +152,9 @@ grid layout
 }
 
 @include coll('');
+@media ($media_xs) {
+    @include coll('xs');
+}
 @media ($media_sm) {
     @include coll('sm');
 }
